@@ -1,0 +1,1072 @@
+/* =========================================== */
+/* ESTILOS GENERALES */
+/* =========================================== */
+
+/* Reset CSS: Elimina márgenes y padding por defecto de todos los elementos */
+* {
+    margin: 0;
+    /* Quita el margen exterior predeterminado */
+    padding: 0;
+    /* Quita el relleno interior predeterminado */
+    box-sizing: border-box;
+    /* Incluye padding y border en el width/height total */
+}
+
+/* Variables CSS globales (custom properties) para mantener consistencia */
+:root {
+    --primary-color: rgb(15, 0, 112); 
+    /* Color principal: azul oscuro - 15, 0,112*/
+    --secondary-color: rgb(249, 244, 239);
+    /* Color secundario: gris claro */
+    --accent-color: rgb(15, 0, 112);
+    /* Color de acento: mismo azul oscuro */
+    --text-color: #000000;
+    /* Color del texto: gris oscuro */
+    --light-text: #fff;
+    /* Color texto claro: blanco */
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra estándar para elementos */
+    --transition: all 0.3s ease;
+    /* Transición suave para animaciones */
+}
+
+/* Estilos base para el cuerpo del documento */
+body {
+    font-family: 'Montserrat', sans-serif;
+    /* Fuente principal */
+    color: var(--text-color);
+    /* Color del texto usando variable */
+    line-height: 1.6;
+    /* Espaciado entre líneas */
+    overflow-x: hidden;
+    /* Oculta scroll horizontal */
+    scroll-behavior: smooth;
+    /* Scroll suave entre secciones */
+}
+
+/* Estilos para encabezados h1, h2, h3 */
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+    /* Fuente elegante para títulos */
+    font-weight: 400px;
+    /* Grosor de fuente semi-negrita */
+    margin-bottom: 1rem;
+    /* Espacio inferior */
+}
+
+/* Clase para secciones principales de la página */
+.section {
+    min-height: 50vh;
+    /* Altura mínima: toda la pantalla */
+    padding: 4rem 2rem;
+    /* Relleno: 4rem arriba/abajo, 2rem lados */
+    display: flex;
+    /* Activa flexbox para alineación */
+    flex-direction: column;
+    /* Organiza elementos en columna */
+    justify-content: center;
+    /* Centra verticalmente */
+    align-items: center;
+    /* Centra horizontalmente */
+    text-align: center;
+    /* Texto centrado */
+}
+
+/* Contenedor principal para limitar ancho máximo */
+.container {
+    max-width: 1200px;
+    /* Ancho máximo en pantallas grandes */
+    margin: 0 auto;
+    /* Centra el contenedor horizontalmente */
+    width: 100%;
+    /* Ocupa el 100% del espacio disponible */
+}
+
+/* Estilos base para botones */
+.btn {
+    display: inline-block;
+    /* Permite width/height pero en línea */
+    padding: 0.8rem 1.5rem;
+    /* Relleno interno */
+    background-color: var(--primary-color);
+    /* Fondo color principal */
+    color: var(--light-text);
+    /* Texto color claro */
+    border: none;
+    /* Sin borde */
+    border-radius: 4px;
+    /* Esquinas redondeadas */
+    font-family: 'Montserrat', sans-serif;
+    /* Fuente del botón */
+    font-weight: 500;
+    /* Peso de fuente medio */
+    text-decoration: none;
+    /* Sin subrayado en enlaces */
+    cursor: pointer;
+    /* Cursor tipo mano al pasar */
+    transition: var(--transition);
+    /* Transición suave para hover */
+    box-shadow: var(--shadow);
+    /* Sombra aplicada */
+    margin: 0.5rem;
+    /* Margen exterior */
+}
+
+/* Efecto hover para botones */
+.btn:hover {
+    background-color: var();
+    /* Cambia color de fondo al pasar */
+    transform: translateY(-2px);
+    /* Efecto de levitación (sube 2px) */
+}
+
+/* Variante secundaria de botón */
+.btn-secondary {
+    background-color: transparent;
+    /* Fondo transparente */
+    border: 2px solid var(--primary-color);
+    /* Borde con color principal */
+}
+
+/* Efecto hover para botón secundario */
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    /* Fondo se llena con color principal */
+    color: var(--light-text);
+    /* Texto cambia a claro */
+}
+
+/* =========================================== */
+/* PANTALLA DE BIENVENIDA CON MÚSICA */
+/* =========================================== */
+
+/* Pantalla completa de bienvenida que cubre toda la ventana */
+#pantalla-bienvenida {
+    position: fixed;
+    /* Posición fija en la ventana */
+    top: 0;
+    /* Pegado al borde superior */
+    left: 0;
+    /* Pegado al borde izquierdo */
+    width: 100%;
+    /* Ancho completo de la ventana */
+    height: 100%;
+    /* Alto completo de la ventana */
+    /* Fondo con gradiente azul semitransparente sobre imagen */
+    background: linear-gradient(rgba(0, 8, 97, 0.8), rgba(0, 8, 97, 0.8)), url('https://images.unsplash.com/photo-1749497268209-c167ed52b682?q=80&w=967&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=967w');
+    background-size: cover;
+    /* Imagen cubre todo el espacio */
+    background-position: center;
+    /* Centra la imagen de fondo */
+    display: flex;
+    /* Flexbox para centrar contenido */
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    z-index: 10000;
+    /* Alto z-index para estar encima de todo */
+    color: var(--light-text);
+    /* Texto color blanco */
+}
+
+/* Contenedor del contenido de bienvenida */
+.bienvenida-content {
+    text-align: center;
+    /* Texto centrado */
+    max-width: 600px;
+    /* Ancho máximo del contenedor */
+    padding: 2rem;
+    /* Relleno interno */
+    background: rgba(0, 0, 0, 0.361);
+    /* Fondo negro muy transparente */
+    border-radius: 15px;
+    /* Esquinas muy redondeadas */
+    backdrop-filter: blur(15px);
+    /* Efecto de desenfoque del fondo */
+}
+
+/* Título principal de bienvenida */
+.bienvenida-content h1 {
+    font-size: 2.5rem;
+    /* Tamaño de fuente grande */
+    margin-bottom: 1rem;
+    /* Espacio inferior */
+}
+
+/* Párrafo de bienvenida */
+.bienvenida-content p {
+    font-size: 1.2rem;
+    /* Tamaño de fuente mediano */
+    margin-bottom: 2rem;
+    /* Espacio inferior mayor */
+}
+
+/* Contenedor para botones de opción de música */
+.botones-musica {
+    display: flex;
+    /* Flexbox para alinear botones */
+    justify-content: center;
+    /* Centra botones horizontalmente */
+    flex-wrap: wrap;
+    /* Permite que los botones bajen de línea */
+    gap: 1rem;
+    /* Espacio entre botones */
+}
+
+/* =========================================== */
+/* CONTROL DE MÚSICA */
+/* =========================================== */
+
+/* Control flotante de música en esquina inferior derecha */
+#control-musica {
+    position: fixed;
+    /* Posición fija en la ventana */
+    bottom: 20px;
+    /* 20px desde el borde inferior */
+    right: 20px;
+    /* 20px desde el borde derecho */
+    z-index: 1000;
+    /* Alto z-index para estar visible */
+    background: rgba(255, 255, 255, 0.9);
+    /* Fondo blanco semitransparente */
+    border-radius: 50px;
+    /* Forma ovalada/circular */
+    padding: 10px;
+    /* Relleno interno */
+    box-shadow: var(--shadow);
+    /* Sombra aplicada */
+    display: flex;
+    /* Flexbox para alinear elementos */
+    align-items: center;
+    /* Centra verticalmente los elementos */
+    gap: 10px;
+    /* Espacio entre elementos hijos */
+    backdrop-filter: blur(10px);
+    /* Efecto de desenfoque del fondo */
+}
+
+/* Botón circular de control de música */
+#boton-musica {
+    width: 40px;
+    /* Ancho fijo */
+    height: 40px;
+    /* Alto fijo (forma circular) */
+    border-radius: 50%;
+    /* Forma circular perfecta */
+    background: var(--primary-color);
+    /* Fondo color principal */
+    color: white;
+    /* Texto blanco */
+    border: none;
+    /* Sin borde */
+    cursor: pointer;
+    /* Cursor tipo mano */
+    display: flex;
+    /* Flexbox para centrar ícono */
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    font-size: 1.2rem;
+    /* Tamaño de fuente del ícono */
+    transition: var(--transition);
+    /* Transición suave para hover */
+}
+
+/* Efecto hover para botón de música */
+#boton-musica:hover {
+    background: var(--accent-color);
+    /* Cambia color de fondo */
+    transform: scale(1.1);
+    /* Aumenta tamaño un 10% */
+}
+
+/* Contenedor de información de música (inicialmente oculto) */
+#info-musica {
+    max-width: 0;
+    /* Ancho máximo cero (oculto) */
+    overflow: hidden;
+    /* Oculta contenido que sobresalga */
+    transition: max-width 0.5s ease;
+    /* Transición suave para animación */
+    white-space: nowrap;
+    /* Texto en una sola línea */
+}
+
+/* Estado visible para información de música */
+#info-musica.mostrar {
+    max-width: 200px;
+    /* Ancho máximo cuando se muestra */
+    padding: 0 10px;
+    /* Relleno horizontal */
+}
+
+/* =========================================== */
+/* ANIMACIONES */
+/* =========================================== */
+
+/* Definición de animación de aparición gradual (fade in) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        /* Comienza completamente transparente */
+    }
+
+    to {
+        opacity: 1;
+        /* Termina completamente opaco */
+    }
+}
+
+/* Clase para aplicar animación fadeIn */
+.fade-in {
+    animation: fadeIn 1.5s ease-in-out;
+    /* Dura 1.5 segundos con easing suave */
+}
+
+/* Definición de animación de deslizamiento desde abajo */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        /* Comienza transparente */
+        transform: translateY(30px);
+        /* Comienza 30px más abajo */
+    }
+
+    to {
+        opacity: 1;
+        /* Termina opaco */
+        transform: translateY(0);
+        /* Termina en posición normal */
+    }
+}
+
+/* Clase para aplicar animación slideUp */
+.slide-up {
+    animation: slideUp 0.8s ease-out;
+    /* Dura 0.8 segundos con easing out */
+}
+/* =========================================== */
+/* CARRUSEL */
+/* =========================================== */
+
+
+.carrusel {
+    position: relative;
+    width: 80%;
+    max-width: 900px;
+    height: 420px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Todas las imágenes */
+.carrusel img {
+    position: absolute;
+    width: 60%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.6s ease;
+    opacity: 0;
+    transform: scale(0.6);
+}
+
+/* Imagen central (activa) */
+img.activa {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 3;
+}
+
+/* Imagen anterior (izquierda) */
+img.prev {
+    left: 5%;
+    opacity: 0.7;
+    transform: scale(0.85);
+    z-index: 2;
+}
+
+/* Imagen siguiente (derecha) */
+img.next {
+    right: 5%;
+    opacity: 0.7;
+    transform: scale(0.85);
+    z-index: 2;
+}
+
+/* Flechas */
+.flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+}
+
+.flecha.izquierda {
+    left: 10px;
+}
+
+.flecha.derecha {
+    right: 10px;
+}
+
+/* =========================================== */
+/* SECCIÓN 1: PORTADA */
+/* =========================================== */
+
+/* Sección de portada principal */
+#portada {
+    /* Fondo con overlay oscuro (actualmente sin imagen URL) AQUI CAMBIARR */
+    background: url('otrogato.jpg');
+    background-size: cover;
+    /* Cubre todo el espacio disponible */
+    background-position: center;
+    /* Centra la imagen */
+    color: var(--light-text);
+    /* Texto color claro */
+    position: relative;
+    /* Posición relativa para elementos hijos */
+}
+.portada-principal{
+    display: flex;
+    justify-content: center;
+}
+/* Contenedor de contenido de la portada */
+.portada-content {
+    z-index: 1;
+    /* Asegura que esté sobre el fondo */
+    max-width: 800px;
+    /* Ancho máximo del contenido */
+}
+
+/* Título principal de la portada */
+.portada-content h1 {
+    font-size: 3.5rem;
+    /* Tamaño de fuente muy grande */
+    margin-bottom: 1.5rem;
+    /* Espacio inferior */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Sombra de texto para legibilidad */
+}
+
+/* Párrafo de la portada */
+.portada-content p {
+    font-size: 1.5rem;
+    /* Tamaño de fuente grande */
+    margin-bottom: 2rem;
+    /* Espacio inferior */
+}
+
+/* Indicador de scroll (flecha animada) */
+.scroll-indicator {
+    position: absolute;
+    /* Posición absoluta dentro de la portada */
+    bottom: 2rem;
+    /* 2rem desde el fondo */
+    left: 50%;
+    /* Centrado horizontalmente */
+    transform: translateX(-50%);
+    /* Ajuste preciso para centrado */
+    color: var(--light-text);
+    /* Color blanco */
+    font-size: 1.2rem;
+    /* Tamaño de fuente */
+    animation: bounce 2s infinite;
+    /* Animación de rebote infinita */
+}
+
+/* Definición de animación de rebote */
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0) translateX(-50%);
+        /* Posición normal */
+    }
+
+    40% {
+        transform: translateY(-20px) translateX(-50%);
+        /* Sube 20px */
+    }
+
+    60% {
+        transform: translateY(-10px) translateX(-50%);
+        /* Baja a mitad */
+    }
+}
+
+/* =========================================== */
+/* SECCIÓN 2: CUENTA REGRESIVA */
+/* =========================================== */
+
+/* Sección de cuenta regresiva */
+#cuenta-regresiva {
+    background-color: var(--secondary-color);
+    /* Fondo gris claro */
+}
+.h1-l{
+    font-size: 3rem;
+    /* Tamaño de fuente muy grande */
+    color: var(--primary-color);
+    /* Color azul oscuro */
+}
+/* Contenedor de los elementos de cuenta regresiva */
+.countdown-container {
+    display: flex;
+    /* Flexbox para alinear elementos */
+    justify-content: center;
+    /* Centra horizontalmente */
+    flex-wrap: wrap;
+    /* Permite que elementos bajen de línea */
+    gap: 2rem;
+    /* Espacio grande entre elementos */
+    margin-top: 2rem;
+    /* Margen superior */
+}
+
+/* Cada elemento individual de la cuenta regresiva */
+.countdown-item {
+    background-color: var(--light-text);
+    /* Fondo blanco */
+    padding: 1.5rem;
+    /* Relleno interno */
+    border-radius: 8px;
+    /* Esquinas redondeadas */
+    box-shadow: var(--shadow);
+    /* Sombra aplicada */
+    min-width: 120px;
+    /* Ancho mínimo para consistencia */
+}
+
+/* Número grande de la cuenta regresiva */
+.countdown-number {
+    font-size: 3rem;
+    /* Tamaño de fuente muy grande */
+    font-weight: 600;
+    /* Texto semi-negrita */
+    color: var(--primary-color);
+    /* Color azul oscuro */
+}
+
+/* Etiqueta debajo del número (días, horas, etc.) */
+.countdown-label {
+    font-size: 1rem;
+    /* Tamaño de fuente normal */
+    text-transform: uppercase;
+    /* Texto en mayúsculas */
+    color: var(--text-color);
+    /* Color gris oscuro */
+    margin-top: 0.5rem;
+    /* Espacio superior */
+}
+
+/* =========================================== */
+/* SECCIÓN 3: INFORMACIÓN DEL EVENTO */
+/* =========================================== */
+
+/* Sección de información del evento */
+#informacion-evento {
+    background-color: var(--light-text);
+    /* Fondo blanco */
+}
+
+/* Contenedor de información del evento */
+.evento-info {
+    max-width: 600px;
+    /* Ancho máximo limitado */
+    margin: 0 auto;
+    /* Centrado horizontal */
+}
+
+/* Título de la sección de evento */
+.evento-info h2 {
+    font-size: 2.5rem;
+    /* Tamaño de fuente grande */
+    color: var(--primary-color);
+    /* Color azul oscuro */
+}
+
+/* Contenedor de detalles del evento */
+.evento-detalles {
+    margin: 2rem 0;
+    /* Margen superior e inferior */
+}
+
+/* Párrafos de detalles del evento */
+.evento-detalles p {
+    margin-bottom: 1rem;
+    /* Espacio entre párrafos */
+    font-size: 1.2rem;
+    /* Tamaño de fuente aumentado */
+}
+
+/* Contenedor de botones del evento */
+.botones-evento {
+    display: flex;
+    /* Flexbox para botones */
+    flex-direction: column;
+    /* Organiza en columna (móvil primero) */
+    gap: 1rem;
+    /* Espacio entre botones */
+    margin-top: 2rem;
+    /* Margen superior */
+}
+
+/* Media query para tablets y escritorio */
+@media (min-width: 768px) {
+    .botones-evento {
+        flex-direction: row;
+        /* Cambia a fila en pantallas grandes */
+        justify-content: center;
+        /* Centra los botones */
+    }
+}
+
+/* =========================================== */
+/* SECCIÓN 4: GALERÍA INTERACTIVA */
+/* =========================================== */
+
+/* Sección de galería de imágenes */
+#galeria {
+    background-color: var(--secondary-color);
+    /* Fondo gris claro */
+}
+.galeria-container{
+    max-width: 800px;
+}
+/* Grid para organizar las imágenes */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Siempre 2 columnas iguales */
+    grid-template-rows: repeat(2, auto);   /* Siempre 2 filas (se ajustan al contenido) */
+    gap: 1rem;                             /* Espacio entre imágenes */
+    margin-top: 2rem;
+}
+
+
+/* Cada item individual de la galería */
+.galeria-item {
+    overflow: hidden;
+    /* Oculta partes de imagen que sobresalgan */
+    border-radius: 8px;
+    /* Esquinas redondeadas */
+    box-shadow: var(--shadow);
+    /* Sombra aplicada */
+    cursor: pointer;
+    /* Cursor tipo mano al pasar */
+    transition: var(--transition);
+    /* Transición suave para hover */
+}
+
+/* Efecto hover para items de galería */
+.galeria-item:hover {
+    transform: scale(1.03);
+    /* Aumenta tamaño un 3% */
+}
+
+/* Imágenes dentro de los items de galería */
+.galeria-item img {
+    width: 100%;
+    /* Ancho completo del contenedor */
+    height: 200px;
+    /* Alto fijo para consistencia */
+    object-fit: cover;
+    /* Recorta imagen para cubrir espacio */
+    display: block;
+    /* Elimina espacio inferior de imágenes */
+}
+
+/* =========================================== */
+/* LIGHTBOX PARA GALERÍA */
+/* =========================================== */
+
+/* Contenedor del lightbox (modal de imagen ampliada) */
+.lightbox {
+    display: none;
+    /* Oculto por defecto */
+    position: fixed;
+    /* Posición fija en ventana */
+    top: 0;
+    /* Cubre desde arriba */
+    left: 0;
+    /* Cubre desde izquierda */
+    width: 100%;
+    /* Ancho completo */
+    height: 100%;
+    /* Alto completo */
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Fondo negro semitransparente */
+    z-index: 1000;
+    /* Alto z-index para estar encima */
+    justify-content: center;
+    /* Centra contenido horizontalmente */
+    align-items: center;
+    /* Centra contenido verticalmente */
+}
+
+/* Estado activo del lightbox (cuando se muestra) */
+.lightbox.active {
+    display: flex;
+    /* Muestra el lightbox */
+}
+
+/* Contenedor del contenido del lightbox */
+.lightbox-content {
+    max-width: 90%;
+    /* Ancho máximo 90% de la ventana */
+    max-height: 90%;
+    /* Alto máximo 90% de la ventana */
+    position: relative;
+    /* Posición relativa para botones hijos */
+}
+
+/* Imagen dentro del lightbox */
+.lightbox-img {
+    max-width: 100%;
+    /* Ancho máximo del contenedor */
+    max-height: 80vh;
+    /* Alto máximo 80% de la altura visible */
+    display: block;
+    /* Comportamiento de bloque */
+    margin: 0 auto;
+    /* Centrado horizontal */
+}
+
+/* Estilos base para botones del lightbox */
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    /* Posición absoluta dentro del lightbox */
+    background: rgba(0, 0, 0, 0.5);
+    /* Fondo negro semitransparente */
+    color: var(--light-text);
+    /* Texto blanco */
+    border: none;
+    /* Sin borde */
+    font-size: 2rem;
+    /* Tamaño de fuente grande */
+    cursor: pointer;
+    /* Cursor tipo mano */
+    padding: 0.5rem 1rem;
+    /* Relleno interno */
+    transition: var(--transition);
+    /* Transición suave para hover */
+}
+
+/* Botón de cerrar lightbox */
+.lightbox-close {
+    top: 1rem;
+    /* 1rem desde arriba */
+    right: 1rem;
+    /* 1rem desde derecha */
+}
+
+/* Botón de imagen anterior */
+.lightbox-prev {
+    top: 50%;
+    /* Centrado verticalmente */
+    left: 1rem;
+    /* 1rem desde izquierda */
+    transform: translateY(-50%);
+    /* Ajuste preciso para centrado vertical */
+}
+
+/* Botón de imagen siguiente */
+.lightbox-next {
+    top: 50%;
+    /* Centrado verticalmente */
+    right: 1rem;
+    /* 1rem desde derecha */
+    transform: translateY(-50%);
+    /* Ajuste preciso para centrado vertical */
+}
+
+/* Efecto hover para botones del lightbox */
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background: rgba(0, 0, 0, 0.8);
+    /* Fondo se oscurece al pasar mouse */
+}
+
+/* =========================================== */
+/* SECCIÓN 5: SUGERIR CANCIÓN */
+/* =========================================== */
+
+/* Sección de sugerencia de canciones */
+#sugerir-cancion {
+    background-color: var(--light-text);
+    /* Fondo blanco */
+}
+
+/* Contenedor del formulario */
+.form-container {
+    max-width: 500px;
+    /* Ancho máximo limitado */
+    margin: 2rem auto 0;
+    /* Margen: 2rem arriba, auto lados, 0 abajo */
+    background-color: var(--secondary-color);
+    /* Fondo gris claro */
+    padding: 2rem;
+    /* Relleno interno */
+    border-radius: 8px;
+    /* Esquinas redondeadas */
+    box-shadow: var(--shadow);
+    /* Sombra aplicada */
+}
+
+/* Grupo de elementos del formulario */
+.form-group {
+    margin-bottom: 1.5rem;
+    /* Espacio entre grupos de campos */
+    text-align: left;
+    /* Alineación izquierda para formularios */
+}
+
+/* Etiquetas de los campos del formulario */
+.form-group label {
+    display: block;
+    /* Ocupa toda la línea */
+    margin-bottom: 0.5rem;
+    /* Espacio debajo de la etiqueta */
+    font-weight: 500;
+    /* Texto semi-negrita */
+}
+
+/* Campos de entrada del formulario */
+.form-group input {
+    width: 100%;
+    /* Ancho completo del contenedor */
+    padding: 0.8rem;
+    /* Relleno interno */
+    border: 1px solid #ddd;
+    /* Borde gris claro */
+    border-radius: 4px;
+    /* Esquinas ligeramente redondeadas */
+    font-family: 'Montserrat', sans-serif;
+    /* Fuente consistente */
+}
+
+/* Efecto focus para campos de entrada */
+.form-group input:focus {
+    outline: none;
+    /* Elimina outline por defecto */
+    border-color: var(--primary-color);
+    /* Borde cambia a color principal */
+}
+
+/* =========================================== */
+/* SECCIÓN 6: ESPACIO FINAL */
+/* =========================================== */
+
+/* Sección final de la página */
+#espacio-final {
+    background-color: rgba(255, 255, 255, 0.8);
+
+}
+.img-copas{
+    width: 200px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+/* =========================================== */
+/* SECCIÓN 6: FOOTER */
+/* =========================================== */
+
+.footer {
+    background-color: rgb(15, 0, 112);
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
+}
+
+.footer-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.footer p {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 1.2rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+    color: #ffb703;
+    transform: scale(1.2);
+}
+
+
+/* =========================================== */
+/* DISEÑO RESPONSIVE */
+/* =========================================== */
+
+/* Media query para dispositivos móviles (ancho máximo 768px) */
+@media (max-width: 768px) {
+    .carrusel {
+            width: 100%;
+    }
+    /* Ajustes de tamaño de fuente para móviles */
+    .portada-content h1 {
+        font-size: 2.5rem;
+        /* Reduce tamaño de título principal */
+    }
+
+    .portada-content p {
+        font-size: 1.2rem;
+        /* Reduce tamaño de párrafo */
+    }
+
+    /* Ajustes para elementos de cuenta regresiva en móviles */
+    .countdown-item {
+        min-width: 100px;
+        /* Reduce ancho mínimo */
+        padding: 1rem;
+        /* Reduce relleno interno */
+    }
+
+    .countdown-number {
+        font-size: 2rem;
+        /* Reduce tamaño de números */
+    }
+
+    /* Ajustes de títulos en móviles */
+    .evento-info h2 {
+        font-size: 2rem;
+        /* Reduce tamaño de título de evento */
+    }
+
+    /* Ajustes generales de secciones */
+    .section {
+        padding: 2rem 1rem;
+        /* Reduce relleno en móviles */
+    }
+
+    /* Ajustes de pantalla de bienvenida en móviles */
+    .bienvenida-content h1 {
+        font-size: 2rem;
+        /* Reduce título de bienvenida */
+    }
+
+    .bienvenida-content p {
+        font-size: 1rem;
+        /* Reduce párrafo de bienvenida */
+    }
+
+    /* Ajustes de control de música en móviles */
+    #control-musica {
+        bottom: 10px;
+        /* Menos espacio desde abajo */
+        right: 10px;
+        /* Menos espacio desde derecha */
+    }
+
+    /* Botones de música en columna en móviles */
+    .botones-musica {
+        flex-direction: column;
+        /* Cambia a columna */
+        align-items: center;
+        /* Centra los botones */
+    }
+
+    /* Botones de música con ancho fijo en móviles */
+    .botones-musica .btn {
+        width: 200px;
+        /* Ancho fijo para consistencia */
+    }
+
+}
+
+/* =========================================== */
+/* ELEGANTE */
+/* =========================================== */
+.titulo-dorado-subrayado {
+font-size: 20px !important;
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2rem;
+  text-align: center;
+  background: linear-gradient(
+    90deg,
+    #b8860b 0%,
+    #ffd700 25%,
+    #fff6c2 50%,
+    #ffd700 75%,
+    #b8860b 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+/* Subrayado animado */
+.titulo-dorado-subrayado::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, #b8860b, #ffd700, #fff6c2, #ffd700, #b8860b);
+  border-radius: 2px;
+  animation: subrayado 3s infinite;
+}
+
+@keyframes subrayado {
+  0% {
+    width: 0;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+
+
+
+
+
+

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invitación Especial</title>
+    <meta
+      name="description"
+      content="Invitación digital interactiva para evento especial"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Pantalla de Bienvenida con Opción de Música -->
+    <div id="pantalla-bienvenida">
+      <div class="bienvenida-content slide-up">
+        <h1>¡Bienvenido!</h1>
+        <p>¿Te gustaría escuchar música de fondo?</p>
+        <div class="botones-musica">
+          <button id="btn-con-musica" class="btn">Sí, con música</button>
+          <button id="btn-sin-musica" class="btn">Sin música</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Control de Música Flotante -->
+    <div id="control-musica" style="display: none">
+      <button id="boton-musica"></button>
+      <div id="info-musica"></div>
+    </div>
+
+    <!-- Sección 1: Portada -->
+    <section id="portada" class="section">
+      <div class="container portada-principal">
+        <div class="portada-content fade-in">
+          <img src="logo.svg" alt="XXX" style="width:250px" />
+          <p>"Bebidas,tragos y momentos unicos"</p>
+          <h1 class="titulo-dorado-subrayado">Invitación Especial</h1>
+        </div>
+      </div>
+      <div class="scroll-indicator"> </div>
+    </section>
+
+    <!-- Sección 2: Cuenta Regresiva -->
+    <section id="cuenta-regresiva" class="section">
+      <div class="container">
+        <h1 class="h1-l">Faltan</h1>
+        <div class="countdown-container">
+          <div class="countdown-item">
+            <div class="countdown-number" id="dias">00</div>
+            <div class="countdown-label">Días</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="horas">00</div>
+            <div class="countdown-label">Horas</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="minutos">00</div>
+            <div class="countdown-label">Min</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="segundos">00</div>
+            <div class="countdown-label">Seg</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 3: Información del Evento -->
+    <section id="informacion-evento" class="section">
+      <div class="container">
+        <div class="evento-info">
+          <h2>Brindis de Inaguración</h2>
+          <div class="evento-detalles">
+            <p><strong>Fecha:</strong> 11 de Octubre, 2025</p>
+            <p><strong>Hora:</strong> 20:00 hrs</p>
+            <p><strong>Lugar:</strong> UPCN Costanera Norte - SDE</p>
+          </div>
+          <div class="botones-evento">
+            <a
+              href="https://www.google.com/maps/place/UPCN+Costanera+Norte,+Santiago+del+Estero/@-27.760849,-64.3102489,14z/data=!4m10!1m2!2m1!1sUPCN!3m6!1s0x943b53b2d04d84e5:0x1d32d4747503bc61!8m2!3d-27.760849!4d-64.27523!15sCgRVUENOIgOIAQGSAQtoaWdoX3NjaG9vbKoBRgoNL2cvMTFiODI2cHAychABKggiBHVwY24oDjIfEAEiGwP6cWpYAj33wF-6Ot4NQqlOna_DRoZOsQbSIDIIEAIiBHVwY27gAQA!16s%2Fg%2F11c6rhq_ct?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              class="btn"
+              >Ver en Google Maps</a
+            >
+            <a href="#" id="confirmar-btn" class="btn">Confirmar Asistencia</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 4: Galería Interactiva -->
+    <section id="galeria" class="section">
+      <div class="carrusel">
+        <button class="flecha izquierda">&#10094;</button>
+
+        <img src="maru.jpg" alt="1" />
+        <img src="foto2.jpg" alt="2" />
+        <img src="foto3.jpg" alt="3" />
+        <img src="foto4.jpg" alt="4" />
+
+        <button class="flecha derecha">&#10095;</button>
+      </div>
+
+      <!-- Lightbox para galería -->
+      <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close">&times;</button>
+        <button class="lightbox-prev" id="lightbox-prev">&lt;</button>
+        <button class="lightbox-next" id="lightbox-next">&gt;</button>
+        <div class="lightbox-content">
+          <img src="" alt="" class="lightbox-img" id="lightbox-img" />
+        </div>
+      </div>
+    </section>
+    
+    <!-- Sección 5: Sugerir Canción -->
+    <section id="sugerir-cancion" class="section">
+      <div class="container">
+        <h2> ◾ Música a la carta ◾ </h2>
+        <p>¿Qué canción no puede faltar en nuestra celebración?</p>
+
+        <div class="form-container">
+          <form
+            method="post"
+            action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd7_x6ZipTbs3jcmHhgd9GUMg25aBUc-3KDZQEXKINYGlKnAQ/formResponse"
+            onsubmit="submitForm();"
+            target="hidden_iframe"
+            style="width: 100%"
+          >
+            <div class="form-group">
+              <label for="nombre">Tu nombre</label>
+              <input type="text" id="nombre" name="entry.1154925768" required />
+            </div>
+
+            <div class="form-group">
+              <label for="cancion">Canción y artista</label>
+              <input
+                type="text"
+                id="cancion"
+                name="entry.1249823877"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="enlace">Enlace (YouTube, Spotify, opcional)</label>
+              <input type="url" id="enlace" name="entry.770254751" />
+            </div>
+
+            <button type="submit" class="btn">Enviar sugerencia</button>
+            <h3 style="margin: 5px 0px">@DJALEXGSGO</h3>
+            <p>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                aria-label="Instagram"
+                style="color: rgb(15, 0, 112)"
+                ><i class="fab fa-instagram fa-2x"></i
+              ></a>
+              <a
+                href="https://www.youtube.com/@djalexgsgo8537"
+                target="_blank"
+                aria-label="YT (youtube)"
+                style="color: rgb(15, 0, 112)"
+                ><i class="fab fa-youtube fa-2x"></i
+              ></a>
+            </p>
+          </form>
+
+          <p
+            id="mensaje"
+            style="display: none; color: green; font-weight: bold"
+          >
+            ¡Gracias por tu sugerencia!
+          </p>
+
+          <iframe
+            name="hidden_iframe"
+            id="hidden_iframe"
+            style="display: none"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección 6: Espacio Final -->
+    <section id="espacio-final" class="section">
+      <div class="container">
+        <div>
+          <img
+            class="img-copas"
+            src="https://img.freepik.com/vector-gratis/bebida-refrigerada-vaso_1308-164887.jpg?t=200w"
+            ,
+            alt="1"
+          />
+        </div>
+        <h2>¡Esperamos verte!</h2>
+        <p>Con cariño,<br />Equipo Barko</p>
+      </div>
+    </section>
+
+    <!-- Audio para la música de fondo -->
+    <audio id="musica-fondo" loop>
+      <source src="Musica/calor.mp3" type="audio/mpeg" />
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script src="script.js"></script>
+  </body>
+  <footer class="footer">
+    <div class="footer-container">
+      <p>© 2025 - Todos los derechos reservados 💛</p>
+      <div class="social-links">
+        <a
+          href="https://www.instagram.com/barkotienda/"
+          target="_blank"
+          aria-label="Instagram"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a
+          href="https://wa.me/+540385154971420"
+          target="_blank"
+          aria-label="WhatsApp"
+          ><i class="fab fa-whatsapp"></i
+        ></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function submitForm() {
+      // Espera la carga del iframe después del envío
+      const iframe = document.getElementById("hidden_iframe");
+      iframe.onload = function () {
+        // Muestra el mensaje de confirmación
+        document.getElementById("mensaje").style.display = "block";
+        // Limpia los campos del formulario
+        document.querySelector("form").reset();
+        // Oculta el mensaje después de unos segundos (opcional)
+        setTimeout(() => {
+          document.getElementById("mensaje").style.display = "none";
+        }, 4000);
+      };
+    }
+  </script>
+  <script>
+    const imgs = document.querySelectorAll(".carrusel img");
+    let index = 0;
+
+    function actualizarCarrusel() {
+      imgs.forEach((img, i) => {
+        img.classList.remove("activa", "prev", "next");
+      });
+
+      const prev = (index - 1 + imgs.length) % imgs.length;
+      const next = (index + 1) % imgs.length;
+
+      imgs[index].classList.add("activa");
+      imgs[prev].classList.add("prev");
+      imgs[next].classList.add("next");
+    }
+
+    document.querySelector(".flecha.derecha").addEventListener("click", () => {
+      index = (index + 1) % imgs.length;
+      actualizarCarrusel();
+    });
+
+    document
+      .querySelector(".flecha.izquierda")
+      .addEventListener("click", () => {
+        index = (index - 1 + imgs.length) % imgs.length;
+        actualizarCarrusel();
+      });
+
+    actualizarCarrusel();
+  </script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
